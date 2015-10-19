@@ -1,7 +1,7 @@
 use strict;
 use warnings;
 
-use Test::More tests => 7;
+use Test::More tests => 5;
 
 use Local::Iterator::Array;
 use Local::Iterator::Aggregator;
@@ -18,14 +18,10 @@ is_deeply($next, [1, 2], 'full chunk');
 ok(!$end, 'not end');
 
 is_deeply(
-    $iterator->next_n(2),
-    [[3, 4], [5, 6]],
-    'next_n'
+    $iterator->all(),
+    [[3, 4], [5, 6], [7]],
+    'all'
 );
-
-($next, $end) = $iterator->next();
-is_deeply($next, [7], 'truncated chunk');
-ok(!$end, 'still not end');
 
 ($next, $end) = $iterator->next();
 is($next, undef, 'no value');

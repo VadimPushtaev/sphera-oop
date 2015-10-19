@@ -13,7 +13,7 @@ my ($next, $end);
 is($next, 1, 'next value');
 ok(!$end, 'not end');
 
-is_deeply($iterator->next_n(5), [2, 3], 'next_n (overflow)');
+is_deeply($iterator->all(), [2, 3], 'all');
 
 ($next, $end) = $iterator->next();
 is($next, undef, 'no value');

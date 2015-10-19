@@ -1,7 +1,7 @@
 use strict;
 use warnings;
 
-use Test::More tests => 6;
+use Test::More tests => 5;
 
 use Local::Iterator::Array;
 use Local::Iterator::Concater;
@@ -20,8 +20,7 @@ my ($next, $end);
 is($next, 1, 'next value');
 ok(!$end, 'not end');
 
-is_deeply($iterator->next_n(2), [2, 3], 'next_n');
-is_deeply($iterator->next_n(4), [4, 5, 6], 'next_n (overflow)');
+is_deeply($iterator->all(), [2, 3, 4, 5, 6], 'all');
 
 ($next, $end) = $iterator->next();
 is($next, undef, 'no value');

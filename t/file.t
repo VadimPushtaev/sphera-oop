@@ -31,7 +31,7 @@ sub test_iterator {
     is($next, 1, "next value ($type)");
     ok(!$end, "not end ($type)");
 
-    is_deeply($iterator->next_n(5), [2, 3], "next_n (overflow) ($type)");
+    is_deeply($iterator->all(), [2, 3], "all ($type)");
 
     ($next, $end) = $iterator->next();
     is($next, undef, "no value ($type)");
